@@ -53,14 +53,21 @@
 ```
 📂 프로젝트 구조
 
-project/
+/project/
 │
-├── app.py               # Flask 메인 서버
-├── models.py            # SQLAlchemy 모델 정의
-├── database.py          # DB 연결 모듈
-├── detection/           # XSS / SQL Injection 탐지 로직
-├── logs/                # 공격 로그 저장
-├── templates/           # 향후 대시보드 UI용 HTML
+├── app.py                # Flask 애플리케이션 메인 파일
+├── /templates/           # HTML 템플릿 폴더
+│   └── admin.html        # 관리자 대시보드 HTML
+├── /models/              # 데이터베이스 모델 폴더
+│   └── attack_log.py     # AttackLog 모델
+├── /config/              # 애플리케이션 설정 폴더
+│   └── config.py         # MySQL 연결 정보 및 기타 설정
+├── /static/              # 정적 파일 (CSS, JS 등)
+│   ├── /css/             
+│   ├── /js/             
+│   └── /img/             
+└── requirements.txt      # 필요한 패키지 목록
+../
 └── README.md
 ```
 🛠️ 사용 기술 스택
