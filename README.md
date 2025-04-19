@@ -52,9 +52,7 @@
 ```
 ```
 📂 프로젝트 구조
-bash
-복사
-편집
+
 project/
 │
 ├── app.py               # Flask 메인 서버
