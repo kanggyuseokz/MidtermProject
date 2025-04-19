@@ -49,3 +49,30 @@
 [실시간 공격 탐지 시스템]
         ↓
 [관리자 대시보드 / 알림 시스템]
+
+📂 프로젝트 구조
+bash
+복사
+편집
+project/
+│
+├── app.py               # Flask 메인 서버
+├── models.py            # SQLAlchemy 모델 정의
+├── database.py          # DB 연결 모듈
+├── detection/           # XSS / SQL Injection 탐지 로직
+├── logs/                # 공격 로그 저장
+├── templates/           # 향후 대시보드 UI용 HTML
+└── README.md
+
+🛠️ 사용 기술 스택
+Language: Python
+
+Web Framework: Flask
+
+Database: MySQL + SQLAlchemy
+
+Security Modules: bleach, logging
+
+Testing Tool: Postman
+
+Future Tools: Flask-Mail, JWT, Flask-Admin 등
