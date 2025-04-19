@@ -50,6 +50,7 @@
         ↓
 [관리자 대시보드 / 알림 시스템]
 ```
+```
 📂 프로젝트 구조
 bash
 복사
@@ -63,7 +64,7 @@ project/
 ├── logs/                # 공격 로그 저장
 ├── templates/           # 향후 대시보드 UI용 HTML
 └── README.md
-
+```
 🛠️ 사용 기술 스택
 Language: Python
 
