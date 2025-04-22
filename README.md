@@ -53,22 +53,39 @@
 ```
 📂 프로젝트 구조
 
-/project/
+CapstoneDesignProject/
 │
-├── app.py                # Flask 애플리케이션 메인 파일
-├── /templates/           # HTML 템플릿 폴더
-│   └── admin.html        # 관리자 대시보드 HTML
-├── /models/              # 데이터베이스 모델 폴더
-│   └── attack_log.py     # AttackLog 모델
-├── /config/              # 애플리케이션 설정 폴더
-│   └── config.py         # MySQL 연결 정보 및 기타 설정
-├── /static/              # 정적 파일 (CSS, JS 등)
-│   ├── /css/             
-│   ├── /js/             
-│   └── /img/             
-└── requirements.txt      # 필요한 패키지 목록
-../
-└── README.md
+├── app.py                      # Flask 앱 실행 진입점
+├── README.md                   # 프로젝트 설명 문서
+│
+├── project/
+│   ├── config/                 # 설정 관련 모듈
+│   │   └── comfig.py
+│
+│   ├── models/                 # SQLAlchemy 모델 정의
+│   │   └── attack_log.py       # 공격 로그 모델
+│
+│   ├── routes/                 # API 라우터
+│   │   ├── admin.py            # 관리자 전용 API
+│   │   └── api.py              # 사용자 입력 처리 API
+│
+│   ├── services/               # 보안 탐지 로직
+│   │   ├── sqli_detect.py      # SQL Injection 탐지
+│   │   └── xss_detect.py       # XSS 탐지 및 정화
+│
+│   ├── static/                 # 정적 파일
+│   │   ├── css/                # 스타일 시트
+│   │   ├── img/                # 이미지
+│   │   └── js/                 # 자바스크립트
+│
+│   ├── templates/              # 관리자 UI (HTML 템플릿)
+│
+│   ├── utils/                  # 공통 유틸리티
+│   │   ├── logger.py           # 공격 로그 기록기
+│   │   └── user_info.py        # 사용자 정보 구조체
+│
+│   └── __init__.py             # 패키지 초기화
+
 ```
 🛠️ 사용 기술 스택
 Language: Python
