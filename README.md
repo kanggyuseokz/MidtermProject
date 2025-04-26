@@ -18,6 +18,7 @@
 | ✅ 로그 기록             | 공격 탐지 시 로그 파일 + DB 저장                                     |
 | ✅ 관리자 API            | 관리자 전용 로그 조회/필터링 기능                                   |
 | ✅ JSON 응답             | 모든 결과는 JSON 형식으로 반환 (Postman 테스트 가능)               |
+| ✅ 실시간 알림 시스템     | xss/ sql injection 공격 발생 시 관리자에게 메일 알림               |
 
 ---
 
@@ -82,6 +83,7 @@ CapstoneDesignProject/
 │
 │   ├── utils/                  # 공통 유틸리티
 │   │   ├── logger.py           # 공격 로그 기록기
+│   │   ├── emailer.py          # 이메일로 관리자에게 알림
 │   │   └── user_info.py        # 사용자 정보 구조체
 │
 │   └── __init__.py             # 패키지 초기화
@@ -95,6 +97,8 @@ Web Framework: Flask
 Database: MySQL + SQLAlchemy
 
 Security Modules: bleach, logging
+
+Email Modules: Flask-mail
 
 Testing Tool: Postman
 
