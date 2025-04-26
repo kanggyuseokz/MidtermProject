@@ -1,4 +1,5 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, current_app
+from project.utils.emailer import send_attack_alert_mail
 from project.services.xss_detect import XSSDetect
 from project.services.sqli_detect import SQLIDetect
 from project.utils.user_info import UserInfo, UserInput
@@ -26,18 +27,20 @@ def handle_input():
     user_input = UserInput(input_text=input_text, user=user)
 
     # 공격 탐지 실행
-    xss_result = xss_engine.process(user_input.input_text)
-    sqli_result = sqli_engine.process(user_input.input_text)
+    xss_result = xss_engine.processInput(user_input)
+    sqli_result = sqli_engine.processInput(user_input)
 
     # 감지된 공격 저장
     detected_attacks = {}
     if xss_result['detected']:
         detected_attacks['XSS'] = xss_result
         log_attack(user_input, "XSS", xss_result['cleaned_input'])
+        send_attack_alert_mail(current_app._get_current_object(), "XSS", user_input, xss_result['cleaned_input'])
 
     if sqli_result['detected']:
         detected_attacks['SQL_Injection'] = sqli_result
         log_attack(user_input, "SQLi", sqli_result['cleaned_input'])
+        send_attack_alert_mail(current_app._get_current_object(), "SQL Injection", user_input, sqli_result['cleaned_input'])
 
     # 결과 응답 생성
     response = {
